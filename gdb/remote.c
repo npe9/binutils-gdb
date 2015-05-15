@@ -6481,7 +6481,7 @@ process_g_packet (struct regcache *regcache)
   buf_len = strlen (rs->buf);
 
   /* Further sanity checks, with knowledge of the architecture.  */
-  if (buf_len > 2 * rsa->sizeof_g_packet)
+  if (buf_len > MAX_REMOTE_PACKET_SIZE)
     error (_("Remote 'g' packet reply is too long: %s"), rs->buf);
 
   /* Save the size of the packet sent to us by the target.  It is used
